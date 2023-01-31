@@ -100,11 +100,12 @@ h1 {
 
 .other-details {
     width: 40rem;
-    height: 4rem;
+    height: fit-content;
     margin-top: 2rem;
     backdrop-filter: blur(.3rem);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .sec{
@@ -128,7 +129,24 @@ h1 {
 
 
 @media screen and (max-width : 800px) {
-    .defaults{
-        display: none;
+    nav{
+        padding: 0 1rem;
+
+    }
+    h1{
+        font-size: 1.5rem;
+    }
+
+    .search{
+        width: 13rem;
+    }
+    .search::placeholder{
+        font-size: 1rem;
+    }
+    .other-details {
+        width: 20rem;
+    }
+
+    .topic{
     }
 }
