@@ -9,6 +9,7 @@ let condition = document.getElementById('condition')
 let humidity = document.getElementById('humidity')
 let wind = document.getElementById('wind')
 let winddegree = document.getElementById('winddegree')
+let conditionImage = document.getElementById('condition-img')
 let city = "gujranwala";
 
 
@@ -32,11 +33,13 @@ const getWeather = (city)=>{
 	fetch('https://weatherapi-com.p.rapidapi.com/current.json?q='+ city, options)
 	.then(response => response.json())
 	.then((response) =>{
+		
 		tempC.innerHTML = response.current.temp_c;
 		tempF.innerHTML = response.current.temp_f;
 		feelsLikeC.innerHTML = response.current.feelslike_c
 		feelsLikeF.innerHTML = response.current.feelslike_f
 		condition.innerHTML = response.current.condition.text
+		conditionImage.innerHTML = `<img src="${response.current.condition.icon}">`
 		humidity.innerHTML = response.current.humidity
 		wind.innerHTML = response.current.wind_kph
 		winddegree.innerHTML = response.current.wind_dir+ " & " + response.current.wind_degree
