@@ -10,13 +10,21 @@ let humidity = document.getElementById('humidity')
 let wind = document.getElementById('wind')
 let winddegree = document.getElementById('winddegree')
 let conditionImage = document.getElementById('condition-img')
+let region = document.getElementById('region')
 let city = "gujranwala";
 
-
+let upperCaseFletter = (variable)=>{
+    let fletter = variable[0].toUpperCase();
+    let rletter = variable.slice(1);
+    rletter = rletter.toLowerCase();
+    variable = fletter+rletter;
+    return variable;
+    }
 
 
 document.getElementById('btn-search').addEventListener('click' , ()=>{
     city = document.getElementById('search').value
+    document.getElementById('search').value = ""
 	getWeather(city)
 })
 
@@ -29,11 +37,11 @@ const options = {
 };
 
 const getWeather = (city)=>{
-	cityName.innerHTML = city.toUpperCase()
+	cityName.innerHTML = upperCaseFletter(city)
 	fetch('https://weatherapi-com.p.rapidapi.com/current.json?q='+ city, options)
 	.then(response => response.json())
 	.then((response) =>{
-		
+        region.innerHTML = `${response.location.region}, ${response.location.country}`
 		tempC.innerHTML = response.current.temp_c;
 		tempF.innerHTML = response.current.temp_f;
 		feelsLikeC.innerHTML = response.current.feelslike_c
@@ -43,36 +51,6 @@ const getWeather = (city)=>{
 		humidity.innerHTML = response.current.humidity
 		wind.innerHTML = response.current.wind_kph
 		winddegree.innerHTML = response.current.wind_dir+ " & " + response.current.wind_degree
-		if(response.current.is_day == 1 &&response.current.condition.text == "Sunny"){
-			document.body.style.background = "url('sunnyDay.jpg')"
-			document.body.style.backgroundSize = "100%"
-			document.body.style.color = "black"
-		} else if(response.current.is_day == 0 && response.current.condition.text == "Clear"){
-			document.body.style.background = "url('clearNight.jpg')"
-			document.body.style.objectFit = "cover"
-			document.body.style.color = "white"
-		}else if(response.current.is_day == 1 &&response.current.condition.text == "Partly cloudy"){
-			document.body.style.background = "url('partlyCloud.jpg')"
-			document.body.style.backgroundSize = "100%"
-			document.body.style.color = "black"
-		}else if(response.current.is_day == 0 &&response.current.condition.text == "Partly cloudy"){
-			document.body.style.background = "url('partlyCloudNight.jpg')"
-			document.body.style.backgroundSize = '100%'
-			document.body.style.color = "white"
-			document.body.style.color = "white"
-		}else if(response.current.is_day == 1 &&response.current.condition.text == "Cloudy"){
-			document.body.style.background = "url('cloudyDay.jpg')"
-			document.body.style.backgroundSize = "100%"
-			document.body.style.color = "black"
-		}else if(response.current.is_day == 0 &&response.current.condition.text == "Cloudy"){
-			document.body.style.color = "white"
-			document.body.style.background = "url('cloudyNight.jpg')"
-			document.body.style.backgroundSize = "100%"
-		} else {
-			document.body.style.color = "black"
-			document.body.style.background = "url('else.jpg')"
-			document.body.style.backgroundSize = "100%"
-		}
 		console.log(response)})
 	.catch(err => console.error(err));
 }
