@@ -10,52 +10,49 @@
 </head>
 
 <body>
-    <nav>
-        <div class="logo">Logo</div>
-        <div class="search-box">
-            <input type="text" class="search" id="search" placeholder="Search for your city">
-            <button class="btn-search" id="btn-search">Enter</button>
-        </div>
-    </nav>
-    
     <section class="main-container">
-        <div class="header">
-            <h1>Weather of <span id="city-name">Gujranwala</span></h1>
-        </div>
-        <div class="temperature-card">
-                <div class="temperature"><span id="tempC">30</span>&#176;C</div>
+
+        <div class="main">
+            <div class="search-box">
+                <input type="text" class="search" id="search" placeholder="Search for your city">
+                <button class="btn-search" id="btn-search">Enter</button>
+            </div>
+            <div class="temperature-card">
+                <h1><span id="city-name">Gujranwala</span>&nbsp; <span id="region">Punjab, Pakistan</span></h1>
                 <div class="condition-v" id="condition-img"></div>
                 <div class="condition" id="condition">Clear</div>
-                <div class="temperature"><span id="tempF">30</span>&#176;F</div>
-                <div class="feels">Feels Like <span id="feels-likeC">3</span>&#176;C</div>
-                <div class="feels">Feels Like <span id="feels-likeF">3</span>&#176;F</div>
-            </div>
-            <div class="other-details">
-                <div class="sec">
-                    <div class="topic">
-                        Humidity
+                    <div class="temperature"><span id="tempC">30</span>&#176;C</div>
+                    <div class="temperature"><span id="tempF">30</span>&#176;F</div>
+                    <div class="feels">Feels Like <span id="feels-likeC">3</span>&#176;C</div>
+                    <div class="feels">Feels Like <span id="feels-likeF">3</span>&#176;F</div>
+                </div>
+                <div class="other-details">
+                    <div class="sec">
+                        <div class="topic">
+                            Humidity
+                        </div>
+                        <div class="value">
+                            <span id="humidity"></span>%
+                        </div>
                     </div>
-                    <div class="value">
-                        <span id="humidity"></span>%
+                    <div class="sec">
+                        <div class="topic">
+                            Wind Speed
+                        </div>
+                        <div class="value">
+                            <span id="wind"></span>km/h
+                        </div>
+                    </div>
+                    <div class="sec">
+                        <div class="topic">
+                            Wind Direction
+                        </div>
+                        <div class="value ">
+                            <span id="winddegree"></span>
+                        </div>
                     </div>
                 </div>
-                <div class="sec">
-                    <div class="topic">
-                        Wind Speed
-                    </div>
-                    <div class="value">
-                        <span id="wind"></span>km/h
-                    </div>
-                </div>
-                <div class="sec">
-                    <div class="topic">
-                        Wind Direction
-                    </div>
-                    <div class="value ">
-                        <span id="winddegree"></span>
-                    </div>
-                </div>
-            </div>
+        </div>
     </section>
 
     <script src="script.js"></script>
