@@ -75,7 +75,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 6rem;
+    font-size: 4rem;
     overflow: hidden;
     transition: 1s;
 }
@@ -104,7 +104,7 @@ h1 {
 }
 
 .other-details {
-    width: 40rem;
+    width: 20rem;
     height: fit-content;
     margin-top: 2rem;
     border-radius: 1rem;
